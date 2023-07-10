@@ -106,6 +106,7 @@ return packer.startup(function(use)
   use({ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" })
 
   use("NvChad/nvim-colorizer.lua")
+  use({ "akinsho/toggleterm.nvim", tag = "*" })
 
   if packer_bootstrap then
     require("packer").sync()
