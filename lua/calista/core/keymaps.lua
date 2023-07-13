@@ -13,6 +13,9 @@ keymap.set("i", "jk", "<ESC>")
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
+-- go to terminal
+keymap.set("n", "<leader>tm", ":ToggleTerm<CR>")
+
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
@@ -39,7 +42,12 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
-
+keymap.set("n", "<leader>zy", "va{Vy")
+keymap.set("n", "<leader>zz", "va{y")
+keymap.set("n", "<leader>zd", "va{Vd")
+keymap.set("n", "<leader>za", "ggVGy")
+keymap.set("n", "<leader>z:", "0f:wv$y")
+keymap.set("n", "<leader>z=", "0f=wv$y")
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 

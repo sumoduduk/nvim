@@ -46,6 +46,7 @@ return packer.startup(function(use)
 
   -- commenting with gc
   use("numToStr/Comment.nvim")
+  use("JoosepAlviste/nvim-ts-context-commentstring")
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
@@ -107,6 +108,10 @@ return packer.startup(function(use)
 
   use("NvChad/nvim-colorizer.lua")
   use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+  --rust
+
+  use("simrat39/rust-tools.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

@@ -24,6 +24,7 @@ treesitter.setup({
     "html",
     "css",
     "markdown",
+    "markdown_inline",
     "svelte",
     "graphql",
     "bash",
@@ -31,6 +32,7 @@ treesitter.setup({
     "vim",
     "dockerfile",
     "gitignore",
+    "rust",
   },
   -- auto install above language parsers
   auto_install = true,
