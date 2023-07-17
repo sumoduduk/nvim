@@ -41,8 +41,8 @@ keymap.set("n", "<leader>zy", "va{Vy")
 keymap.set("n", "<leader>zz", "va{y")
 keymap.set("n", "<leader>zd", "va{Vd")
 keymap.set("n", "<leader>za", "ggVGy")
-keymap.set("n", "<leader>zc", "0f:wv$y")
-keymap.set("n", "<leader>ze", "0f=wv$y")
+keymap.set("n", "<leader>z:", "0f:wv$y")
+keymap.set("n", "<leader>z=", "0f=wv$y")
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>") -- toggle file explorer
@@ -62,3 +62,6 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- toggle terminal
+keymap.set("n", "<leader>tm", ":ToggleTerm<CR>") -- mapping to restart lsp if necessary
