@@ -149,8 +149,17 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim")
-
+  -- terminal
   use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+  -- rust
+  use("mfussenegger/nvim-dap")
+  use("simrat39/rust-tools.nvim")
+  use({
+    "saecki/crates.nvim",
+    tag = "v0.3.0",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   if packer_bootstrap then
     require("packer").sync()
