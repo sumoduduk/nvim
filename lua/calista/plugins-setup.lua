@@ -108,11 +108,16 @@ return packer.startup(function(use)
 
   use("NvChad/nvim-colorizer.lua")
   use({ "akinsho/toggleterm.nvim", tag = "*" })
-
+  use("ggandor/leap.nvim")
   --rust
-
-  use("simrat39/rust-tools.nvim")
-
+  use({
+    "saecki/crates.nvim",
+    tag = "v0.3.0",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("crates").setup()
+    end,
+  })
   if packer_bootstrap then
     require("packer").sync()
   end

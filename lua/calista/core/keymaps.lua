@@ -66,3 +66,7 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+---- leap ----
+vim.keymap.set("n", "<leader>l", "<Plug>(leap-forward)", {})
+vim.keymap.set("n", "<leader>h", "<Plug>(leap-backward)", {})
