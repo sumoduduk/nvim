@@ -29,6 +29,13 @@ cmp_mappings["<S-Tab>"] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
+  sources = {
+    { name = "nvim_lsp" }, -- lsp
+    { name = "luasnip", keyword_length = 2 }, -- snippets
+    { name = "buffer", keyword_length = 3 }, -- text within current buffer
+    { name = "path" }, -- file system paths
+    { name = "crates" },
+  },
 })
 
 lsp.set_preferences({
@@ -82,7 +89,7 @@ lsp.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ["null-ls"] = { "javascript", "typescript", "lua", "json", "typescriptreact", "javascriptreact", "solidity" },
+    ["null-ls"] = { "javascript", "json", "typescript", "lua", "typescriptreact", "javascriptreact", "solidity" },
     ["rust_analyzer"] = { "rust" },
   },
 })
@@ -123,6 +130,8 @@ require("mason-null-ls").setup({
     -- to register all sources
   },
 })
+
+require("crates").setup({})
 
 vim.diagnostic.config({
   virtual_text = true,

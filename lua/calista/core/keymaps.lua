@@ -45,7 +45,7 @@ keymap.set("n", "<leader>z:", "0f:wv$y")
 keymap.set("n", "<leader>z=", "0f=wv$y")
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>e", ":NeoTreeFocusToggle<CR>") -- toggle file explorer
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -65,3 +65,6 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 -- toggle terminal
 keymap.set("n", "<leader>tm", ":ToggleTerm<CR>") -- mapping to restart lsp if necessary
+---- leap ----
+vim.keymap.set("n", "<leader>l", "<Plug>(leap-forward)", {})
+vim.keymap.set("n", "<leader>h", "<Plug>(leap-backward)", {})

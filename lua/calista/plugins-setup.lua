@@ -123,6 +123,7 @@ return packer.startup(function(use)
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
+      { "jose-elias-alvarez/typescript.nvim" },
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
@@ -154,12 +155,15 @@ return packer.startup(function(use)
 
   -- rust
   use("mfussenegger/nvim-dap")
-  use("simrat39/rust-tools.nvim")
   use({
     "saecki/crates.nvim",
     tag = "v0.3.0",
     requires = { "nvim-lua/plenary.nvim" },
   })
+
+  -- leap and multi
+
+  use("ggandor/leap.nvim")
 
   if packer_bootstrap then
     require("packer").sync()
