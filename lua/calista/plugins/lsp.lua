@@ -106,6 +106,7 @@ null_ls.setup({
   sources = {
     --- Replace these with the tools you have installed
     null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.jq,
     null_ls.builtins.formatting.prettier.with({
       prefer_local = "node_modules/.bin",
     }),
