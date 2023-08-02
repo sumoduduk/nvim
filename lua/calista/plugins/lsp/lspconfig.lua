@@ -16,7 +16,13 @@ if not typescript_setup then
   return
 end
 
+local rust_tool_status, rt = pcall(require, "rust-tools")
+if not rust_tool_status then
+  return
+end
+
 local keymap = vim.keymap -- for conciseness
+local format_sync_grp = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
@@ -43,6 +49,15 @@ local on_attach = function(client, bufnr)
     keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
     keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
   end
+
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rs",
+  callback = function()
+   vim.lsp.buf.format()
+  end,
+  group = format_sync_grp,
+})
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -82,9 +97,17 @@ lspconfig["tailwindcss"].setup({
   on_attach = on_attach,
 })
 
-lspconfig["rust_analyzer"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
+
+-- lspconfig["rust_analyzer"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
+
+rt.setup({
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  },
 })
 
 -- lspconfig["solidity"].setup({

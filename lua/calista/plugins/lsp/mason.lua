@@ -29,7 +29,7 @@ mason_lspconfig.setup({
     "lua_ls",
   },
   -- auto-install configured servers (with lspconfig)
-  automatic_installation = true, -- not the same as ensure_installed
+  automatic_installation = false, -- not the same as ensure_installed
 })
 
 mason_null_ls.setup({

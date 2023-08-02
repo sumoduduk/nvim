@@ -118,6 +118,8 @@ return packer.startup(function(use)
       require("crates").setup()
     end,
   })
+
+  use("simrat39/rust-tools.nvim")
   if packer_bootstrap then
     require("packer").sync()
   end
