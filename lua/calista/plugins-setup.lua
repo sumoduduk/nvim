@@ -154,6 +154,8 @@ return packer.startup(function(use)
   use({ "akinsho/toggleterm.nvim", tag = "*" })
 
   -- rust
+
+  use("simrat39/rust-tools.nvim")
   use("mfussenegger/nvim-dap")
   use({
     "saecki/crates.nvim",

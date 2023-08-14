@@ -48,7 +48,7 @@ lsp.set_preferences({
   },
 })
 
-lsp.on_attach(function(client, bufnr)
+local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function()
@@ -81,7 +81,15 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function()
     vim.lsp.buf.signature_help()
   end, opts)
-end)
+
+  if client.name == "tsserver" then
+    vim.keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+    vim.keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
+    vim.keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+  end
+end
+
+lsp.on_attach(on_attach)
 
 lsp.format_on_save({
   format_opts = {
@@ -93,6 +101,8 @@ lsp.format_on_save({
     ["rust_analyzer"] = { "rust" },
   },
 })
+
+lsp.skip_server_setup({ "rust_analyzer" })
 
 lsp.setup()
 
@@ -129,6 +139,14 @@ require("mason-null-ls").setup({
     --
     -- If left empty, mason-null-ls will  use a "default handler"
     -- to register all sources
+  },
+})
+
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = on_attach,
   },
 })
 
