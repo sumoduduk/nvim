@@ -38,12 +38,12 @@ null_ls.setup({
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({
-            filter = function(client)
-              --  only use null-ls for formatting instead of lsp server
-              if not client.name == "rust_analyzer" then
-                return client.name == "null-ls"
-              end
-            end,
+            -- filter = function(client)
+            --   --  only use null-ls for formatting instead of lsp server
+            --   if not client.name == "rust_analyzer" then
+            --     return client.name == "null-ls"
+            --   end
+            -- end,
             bufnr = bufnr,
           })
         end,
