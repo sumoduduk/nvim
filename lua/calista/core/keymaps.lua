@@ -48,8 +48,9 @@ keymap.set("n", "<leader>zd", "va{Vd")
 keymap.set("n", "<leader>za", "ggVGy")
 keymap.set("n", "<leader>z:", "0f:wv$y")
 keymap.set("n", "<leader>z=", "0f=wv$y")
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+-- neo-tree
+keymap.set("n", "<leader>e", ":Neotree toggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>git", ":Neotree float git_status<CR>") -- toggle file explorer
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
