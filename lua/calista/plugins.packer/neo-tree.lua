@@ -1,14 +1,17 @@
-return {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
-    config = function()
-      require("neo-tree").setup({
+-- import nvim-tree plugin safely
+local setup, neotree = pcall(require, "neo-tree")
+if not setup then
+  return
+end
+
+-- recommended settings from nvim-tree documentation
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+-- change color for arrows in tree to light blue
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+
+neotree.setup({
   event_handlers = {
     {
       event = "neo_tree_buffer_enter",
@@ -48,6 +51,4 @@ return {
       },
     },
   },
-      })
-    end
-}
+})
