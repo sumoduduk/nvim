@@ -9,6 +9,8 @@ local keymap = vim.keymap -- for conciseness
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
+-- use jk to exit replace mode
+keymap.set("x", "jk", "<ESC>")
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -60,8 +62,8 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 -- toggle terminal
 keymap.set("n", "<leader>tm", "<cmd>:ToggleTerm direction=float<CR>") -- mapping to restart lsp if necessary
 ---- leap ----
-keymap.set("n", "<leader>l", "<Plug>(leap-forward)", {})
 keymap.set("n", "<leader>h", "<Plug>(leap-backward)", {})
+keymap.set("n", "<leader>l", "<Plug>(leap-forward)", {})
 
 -- undotree
 -- keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle)
