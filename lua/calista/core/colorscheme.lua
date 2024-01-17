@@ -1,7 +1,6 @@
--- set colorscheme to nightfly with protected call
--- in case it isn't installed
-local status, _ = pcall(vim.cmd, "colorscheme moonfly")
-if not status then
-  print("Colorscheme not found!") -- print error if colorscheme not installed
-  return
-end
+  return { "craftzdog/solarized-osaka.nvim", name = "solarized_osaka", branch = "cterm-compat",
+  priority = 1000,
+config = function()
+  vim.cmd([[colorscheme solarized-osaka]])
+end,
+}

@@ -15,11 +15,13 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   -- setup formatters & linters
   sources = {
+    -- formatting.rustfmt,
     --  to disable file types use
     --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
     formatting.prettier.with({
       extra_filetypes = { "solidity" },
     }),
+    formatting.black,
     formatting.stylua,
     diagnostics.eslint_d.with({ -- js/ts linter
       -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
@@ -37,10 +39,12 @@ null_ls.setup({
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({
-            filter = function(client)
-              --  only use null-ls for formatting instead of lsp server
-              return client.name == "null-ls"
-            end,
+            -- filter = function(client)
+            --   --  only use null-ls for formatting instead of lsp server
+            --   if not client.name == "rust_analyzer" then
+            --     return client.name == "null-ls"
+            --   end
+            -- end,
             bufnr = bufnr,
           })
         end,
