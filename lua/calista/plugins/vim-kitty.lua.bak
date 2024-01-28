@@ -1,0 +1,11 @@
+return {
+  "knubie/vim-kitty-navigator",
+  build = "cp ./*.py ~/.config/kitty/",
+  config = function()
+    local keymap = vim.keymap -- for conciseness
+    keymap.set("n", "<C-h>", ":KittyNavigateLeft<cr>")
+    keymap.set("n", "<C-j>", ":KittyNavigateDown<cr>")
+    keymap.set("n", "<C-k>", ":KittyNavigateUp<cr>")
+    keymap.set("n", "<C-l>", ":KittyNavigateRight<cr>")
+  end,
+}
