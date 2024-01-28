@@ -3,7 +3,16 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
+    -- {
+    --   "antosha417/nvim-lsp-file-operations",
+    --   config = function()
+    --     local lsp_file = require("lsp-file-operations")
+    --
+    --     lsp_file.setup({
+    --       debug = true,
+    --     })
+    --   end,
+    -- },
   },
   config = function()
     -- import lspconfig plugin
@@ -78,18 +87,32 @@ return {
 
     -- configure typescript server with plugin
     lspconfig["tsserver"].setup({
+      root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
       capabilities = capabilities,
       on_attach = on_attach,
+      single_file_support = false,
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern(
+        "tailwind.config.cjs",
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "postcss.config.js"
+      ),
     })
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
+      root_dir = lspconfig.util.root_pattern(
+        "tailwind.config.cjs",
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "postcss.config.js"
+      ),
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -101,10 +124,10 @@ return {
     })
 
     -- configure mdx_analyzer server
-    lspconfig["mdx_analyzer"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- lspconfig["mdx_analyzer"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    -- })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
