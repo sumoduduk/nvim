@@ -12,7 +12,6 @@ return {
     local term_map = require("terminal.mappings")
     -- vim.keymap.set({ "n", "x" }, "<leader>ts", term_map.operator_send, { expr = true })
     -- vim.keymap.set("n", "<leader>to", term_map.toggle)
-    -- vim.keymap.set("n", "<leader>tm", term_map.toggle({ open_cmd = "enew" }))
     -- vim.keymap.set("n", "<leader>tr", term_map.run)
     -- vim.keymap.set("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }))
     -- vim.keymap.set("n", "<leader>tk", term_map.kill)
@@ -23,6 +22,8 @@ return {
     -- vim.keymap.set("n", "<leader>th", term_map.move({ open_cmd = "belowright new" }))
     -- vim.keymap.set("n", "<leader>tH", term_map.move({ open_cmd = "botright new" }))
     vim.keymap.set("n", "<leader>tf", term_map.move({ open_cmd = "float" }))
+    vim.keymap.set("n", "<leader>tm", ":TermOpen tabnew<CR>")
+    vim.keymap.set("n", "<leader>tc", ":TermClose<CR>")
 
     vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
     vim.keymap.set("t", "jk", [[<C-\><C-n>]])
