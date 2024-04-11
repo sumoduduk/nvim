@@ -17,6 +17,7 @@ return {
         "json",
         "markdown",
         "markdown_inline",
+        "yaml",
         "dockerfile",
         "graphql",
         "toml",
