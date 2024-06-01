@@ -44,6 +44,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        { name = "crates" }, -- creates
         { name = "emoji" }, -- file system paths
       }),
       -- configure lspkind for vs-code like pictograms in completion menu

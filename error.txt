@@ -1,0 +1,6 @@
+Error detected while processing TermClose Autocommands for "*":
+Error executing lua callback: .../share/nvim/lazy/terminal.nvim/lua/terminal/terminal.lua:209: scoped variable: Invalid buffer id: 5
+stack traceback:
+        [C]: in function '__index'
+        .../share/nvim/lazy/terminal.nvim/lua/terminal/terminal.lua:209: in function 'on_term_close'
+        ...ta/.local/share/nvim/lazy/terminal.nvim/lua/terminal.lua:23: in function <...ta/.local/share/nvim/lazy/terminal.nvim/lua/terminal.lua:22>

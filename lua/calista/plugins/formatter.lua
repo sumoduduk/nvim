@@ -15,7 +15,7 @@ return {
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },
-        yaml = { "prettier" },
+        yaml = { "yamlfix" },
         markdown = { "prettier" },
         graphql = { "prettier" },
         lua = { "stylua" },
