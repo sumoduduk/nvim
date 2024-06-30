@@ -23,38 +23,23 @@ return {
             folder_open = "",
             folder_empty = "󰉖",
             folder_empty_open = "󰷏",
+       file_size = {
+        enabled = false,
+        required_width = 64, -- min width of window required to show this column
       },
-       git_status = {
-            symbols = {
-              -- Change type
-              added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted   = "✖",-- this can only be used in the git_status source
-              renamed   = "󰁕",-- this can only be used in the git_status source
-              -- Status type
-              untracked = "",
-              ignored   = "",
-              unstaged  = "󰄱",
-              staged    = "",
-              conflict  = "",
-            }
+      type = {
+        enabled = false,
+        required_width = 122, -- min width of window required to show this column
       },
-           file_size = {
-            enabled = false,
-            required_width = 64, -- min width of window required to show this column
-          },
-          type = {
-            enabled = true,
-            required_width = 122, -- min width of window required to show this column
-          },
-          last_modified = {
-            enabled = false,
-            required_width = 88, -- min width of window required to show this column
-          },
-          created = {
-            enabled = false,
-            required_width = 110, -- min width of window required to show this column
-          },
+      last_modified = {
+        enabled = false,
+        required_width = 88, -- min width of window required to show this column
+      },
+      created = {
+        enabled = false,
+        required_width = 110, -- min width of window required to show this column
+      },
+      },
       window = {
         width = 30,
         mappings = {
@@ -75,6 +60,13 @@ return {
           mappings = {
             ["I"] = "toggle_hidden",
             ["o"] = "open",
+            ["oc"] = "noop",
+            ["od"] = "noop",
+            ["og"] = "noop",
+            ["om"] = "noop",
+            ["on"] = "noop",
+            ["os"] = "noop",
+            ["ot"] = "noop",
           },
         },
       },
