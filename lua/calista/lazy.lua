@@ -22,4 +22,5 @@ require("lazy").setup({ { import = "calista.plugins" }, { import = "calista.plug
 	change_detection = {
 		notify = false,
 	},
+  rocks = { enabled = false },
 })

@@ -27,13 +27,13 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
-        "rust_analyzer",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "lua_ls",
-        "pyright",
+        -- "tsserver",
+        -- "rust_analyzer",
+        -- "html",
+        -- "cssls",
+        -- "tailwindcss",
+        -- "lua_ls",
+        -- "pyright",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = false, -- not the same as ensure_installed
