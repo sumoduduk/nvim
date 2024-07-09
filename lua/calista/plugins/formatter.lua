@@ -7,6 +7,7 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        lua = { "stylua" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -18,7 +19,6 @@ return {
         yaml = { "yamlfix" },
         markdown = { "prettier" },
         graphql = { "prettier" },
-        lua = { "stylua" },
         python = { "isort", "black" },
         rust = { "rust_analyzer" },
         nix = { "alejandra" },
