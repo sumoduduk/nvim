@@ -1,5 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
+  opts = {
+      inlay_hints = { enabled = true },
+    },
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
