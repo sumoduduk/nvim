@@ -49,3 +49,8 @@ local cmd = vim.cmd
       keymap.set('n', "]e", function ()
         cmd.RustLsp('explainError')
       end, opts)
+
+      opts.desc = "Toggle Inlay hints"
+      keymap.set( "n", "<leader>hh", function ()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end, opts)
