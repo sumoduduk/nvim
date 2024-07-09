@@ -15,10 +15,14 @@ local cmd = vim.cmd
 			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
 			opts.desc = "Code Action"
-			keymap.set("n", "<Leader>ca", cmd.RustLsp('codeAction'), opts)
+			keymap.set("n", "<Leader>ca", function ()
+			 cmd.RustLsp('codeAction')
+			end, opts)
 
 			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", cmd.RustLsp({'hover', 'actions'}), opts) -- show documentation for what is under cursor
+			keymap.set("n", "K", function ()
+			 cmd.RustLsp({'hover', 'actions'})
+			end, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Go to previous diagnostic"
       vim.keymap.set('n', '[d', function() -- previous
@@ -37,7 +41,11 @@ local cmd = vim.cmd
       keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
       opts.desc = "Go to declaration"
-      keymap.set("n", "gD", cmd.RustLsp('openDocs'), opts) -- go to declaration
+      keymap.set("n", "gD", function ()
+        cmd.RustLsp('openDocs')
+      end, opts) -- go to declaration
 
       opts.desc = "Explain error"
-      keymap.set('n', "]e", cmd.RustLsp('explainError'))
+      keymap.set('n', "]e", function ()
+        cmd.RustLsp('explainError')
+      end, opts)
