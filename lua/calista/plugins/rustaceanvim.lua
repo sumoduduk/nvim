@@ -7,6 +7,12 @@ return {
   -- LSP configuration
   server = {
     standalone = false,
+        root_dir = function (file_name)
+    local path = file_name:find('%.toml$') and vim.fs.dirname(file_name) or file_name
+    if not path then
+      return nil
+    end
+        end
       },
     }
   end,
