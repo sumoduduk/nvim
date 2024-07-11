@@ -40,6 +40,7 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git bra
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
 keymap.set("n", "<leader>rs", ":LspRestart<CR>")
+keymap.set("n", "<leader>q", ":LspStop<CR>")
 
 keymap.set("n", "<leader>l", "<Plug>(leap-forward)", {})
 keymap.set("n", "<leader>h", "<Plug>(leap-backward)", {})
