@@ -1,6 +1,6 @@
 return {
   "mg979/vim-visual-multi",
-  lazy = true,
+  lazy = false,
   init = function()
 			vim.g.VM_maps = {
 				["Find Under"] = '<leader>n',
