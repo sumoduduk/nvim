@@ -50,11 +50,25 @@ opt.fillchars = {
 }
 
 -- vim.g.moonflyTransparent = true
-local handle = io.popen("which python3")
-local result = handle:read("*a")
-handle:close()
+-- handle python bin
+local is_nixos = false
+local os_release_handle = io.open("/etc/os-release", "r")
 
--- Trim any trailing whitespace (e.g., newline)
-result = result:gsub("%s+$", "")
+if os_release_handle then
+  local os_release_content = os_release_handle:read("*a")
+  os_release_handle:close()
+  if os_release_content:match("ID=nixos") then
+    is_nixos = true
+  end
+end
 
-vim.g.python3_host_prog = result
+if not is_nixos then
+  local handle = io.popen("which python3")
+  local result = handle:read("*a")
+  handle:close()
+
+  -- Trim any trailing whitespace (e.g., newline)
+  result = result:gsub("%s+$", "")
+
+  vim.g.python3_host_prog = result
+end
