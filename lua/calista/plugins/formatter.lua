@@ -19,7 +19,7 @@ return {
         yaml = { "yamlfix" },
         markdown = { "prettier" },
         graphql = { "prettier" },
-        python = { "isort", "black" },
+        python = { "black" },
         rust = { "rust_analyzer" },
         nix = { "alejandra" },
       },
