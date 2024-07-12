@@ -50,4 +50,11 @@ opt.fillchars = {
 }
 
 -- vim.g.moonflyTransparent = true
-vim.g.python3_host_prog = "/usr/bin/python3"
+local handle = io.popen("which python3")
+local result = handle:read("*a")
+handle:close()
+
+-- Trim any trailing whitespace (e.g., newline)
+result = result:gsub("%s+$", "")
+
+vim.g.python3_host_prog = result
