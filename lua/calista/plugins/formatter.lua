@@ -9,6 +9,12 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        swift_format = {
+          stdin = false,
+          args = { "$FILENAME", "--in-place" },
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "prettier" },
@@ -27,7 +33,7 @@ return {
         python = { "black" },
         rust = { "rust_analyzer" },
         nix = { "alejandra" },
-        swift = { "swif-format" },
+        swift = { "swift_format" },
       },
       format_on_save = {
         lsp_fallback = true,
