@@ -2,8 +2,8 @@ return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" }, -- to disable, comment this out
   cmd = { "ConformInfo" },
-  init = function ()
-   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
   config = function()
     local conform = require("conform")
@@ -25,6 +25,7 @@ return {
         python = { "black", "isort" },
         rust = { "rust_analyzer" },
         nix = { "alejandra" },
+        swift = { "swif-format" },
       },
       format_on_save = {
         lsp_fallback = true,
