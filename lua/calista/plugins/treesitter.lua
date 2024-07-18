@@ -10,6 +10,7 @@ return {
         "lua",
         -- "vim",
         "javascript",
+        -- "swift",
         "html",
         "typescript",
         "tsx",
