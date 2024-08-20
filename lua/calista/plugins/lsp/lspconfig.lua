@@ -1,8 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
-      inlay_hints = { enabled = true },
-    },
+    inlay_hints = { enabled = true },
+  },
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -59,12 +59,12 @@ return {
       keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
       opts.desc = "Go to previous diagnostic"
-      vim.keymap.set('n', '[d', function() -- previous
+      vim.keymap.set("n", "[d", function() -- previous
         vim.diagnostic.jump({ count = -vim.v.count1 })
       end, opts)
 
       opts.desc = "Go to next diagnostic"
-      vim.keymap.set('n', ']d', function() -- next
+      vim.keymap.set("n", "]d", function() -- next
         vim.diagnostic.jump({ count = vim.v.count1 })
       end, opts)
 
@@ -90,6 +90,12 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    lspconfig["nil_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern("flake.nix", ".git"),
     })
 
     -- configure typescript server with plugin
