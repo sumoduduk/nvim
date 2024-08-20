@@ -17,6 +17,7 @@ return {
         "json",
         "nix",
         "markdown",
+        -- "ruby",
         "markdown_inline",
         -- "yaml",
         -- "dockerfile",
