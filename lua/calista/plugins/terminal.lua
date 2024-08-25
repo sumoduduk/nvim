@@ -25,7 +25,7 @@ return {
     vim.keymap.set("n", "<leader>tm", ":TermOpen tabnew<CR>")
     vim.keymap.set("n", "<leader>tc", ":TermClose<CR>")
 
-    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+    -- vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
     vim.keymap.set("t", "jk", [[<C-\><C-n>]])
     vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
     vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]])
@@ -39,10 +39,21 @@ return {
       autoclose = true,
     })
 
+    local termusix = require("terminal").terminal:new({
+      layout = { open_cmd = "float", height = 0.6, width = 0.7 },
+      cmd = { "termusix" },
+      autoclose = true,
+    })
+
     vim.env["GIT_EDITOR"] = "nvr -cc close -cc split --remote-wait +'set bufhidden=wipe'"
     vim.api.nvim_create_user_command("Lazygit", function(args)
       lazygit.cwd = args.args and vim.fn.expand(args.args)
       lazygit:toggle(nil, true)
+    end, { nargs = "?" })
+
+    vim.api.nvim_create_user_command("Termusix", function(args)
+      termusix.cwd = args.args and vim.fn.expand(args.args)
+      termusix:toggle(nil, true)
     end, { nargs = "?" })
 
     vim.keymap.set("n", "<leader>lg", ":Lazygit<CR>")
