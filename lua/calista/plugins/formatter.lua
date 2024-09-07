@@ -20,7 +20,7 @@ return {
         html = { "prettier" },
         -- json = { "prettier" },
         rss = { "prettier" },
-        yaml = { "yamlfmt" },
+        -- yaml = { "yamlfmt" },
         markdown = { "prettier" },
         graphql = { "prettier" },
         python = { "black", "isort" },
@@ -30,7 +30,7 @@ return {
       },
       format_on_save = {
         lsp_fallback = true,
-        timeout_ms = 1000,
+        timeout_ms = 3000,
       },
     })
 

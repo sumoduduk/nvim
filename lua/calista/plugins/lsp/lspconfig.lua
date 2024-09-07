@@ -95,7 +95,7 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
       capabilities = capabilities,
       on_attach = on_attach,
