@@ -16,6 +16,7 @@ return {
         "rust",
         "json",
         "nix",
+        "solidity",
         "markdown",
         -- "ruby",
         "markdown_inline",
