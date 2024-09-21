@@ -132,6 +132,13 @@ return {
       on_attach = on_attach,
     })
 
+    lspconfig["solidity_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "solidity" },
+      root_dir = lspconfig.util.root_pattern("foundy.toml", "hardhat.config.*"),
+    })
+
     -- configure mdx_analyzer server
     -- lspconfig["mdx_analyzer"].setup({
     --   capabilities = capabilities,
