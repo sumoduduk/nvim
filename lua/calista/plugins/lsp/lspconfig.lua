@@ -88,6 +88,16 @@ return {
       on_attach = on_attach,
     })
 
+    lspconfig["docker_compose_language_service"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     lspconfig["nil_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -95,11 +105,17 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
       capabilities = capabilities,
       on_attach = on_attach,
       single_file_support = false,
+    })
+
+    lspconfig["denols"].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
     })
 
     -- configure css server

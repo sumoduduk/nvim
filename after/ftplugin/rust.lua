@@ -23,9 +23,7 @@ keymap.set("n", "K", function()
 end, opts) -- show documentation for what is under cursor
 
 opts.desc = "Go to previous diagnostic"
-vim.keymap.set("n", "[d", function() -- previous
-  vim.diagnostic.jump({ count = -vim.v.count1 })
-end, opts)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 
 opts.desc = "Go to next diagnostic"
 vim.keymap.set("n", "]d", function() -- next
@@ -52,3 +50,13 @@ opts.desc = "Toggle Inlay hints"
 keymap.set("n", "<leader>hh", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, opts)
+
+for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+  local default_diagnostic_handler = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function(err, result, context, config)
+    if err ~= nil and err.code == -32802 then
+      return
+    end
+    return default_diagnostic_handler(err, result, context, config)
+  end
+end
