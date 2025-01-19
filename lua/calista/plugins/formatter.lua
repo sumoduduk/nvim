@@ -11,10 +11,10 @@ return {
     conform.setup({
       formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "prettier", "deno_fmt" },
-        typescript = { "prettier", "deno_fmt" },
-        javascriptreact = { "prettier", "deno_fmt" },
-        typescriptreact = { "prettier", "deno_fmt" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
         solidity = { "forge_fmt" },
         svelte = { "prettier" },
         css = { "prettier" },
