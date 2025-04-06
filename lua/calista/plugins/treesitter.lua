@@ -23,6 +23,7 @@ return {
         -- "yaml",
         -- "dockerfile",
         -- "graphql",
+        "sql",
         "toml",
       },
       sync_install = false,
